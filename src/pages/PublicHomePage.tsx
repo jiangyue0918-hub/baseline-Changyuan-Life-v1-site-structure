@@ -11,6 +11,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../app/AppContext';
 import { PUBLIC_HOME_CONTENT } from '../content/pages/publicHome';
+import { getAsset } from '../content/assets';
 import { AssetImage } from '../components/common/AssetImage';
 import {
   ShieldCheck,
@@ -31,6 +32,7 @@ import {
 
 export const PublicHomePage: React.FC = () => {
   const content = PUBLIC_HOME_CONTENT;
+  const heroAsset = getAsset(content.hero.assetId);
   const { openAiModal, openHumanAdvisorModal } = useApp();
 
   // 图标映射
@@ -47,50 +49,60 @@ export const PublicHomePage: React.FC = () => {
 
   return (
     <div className="space-y-12 sm:space-y-16 pb-16">
-      {/* 1. 品牌宽幅 Hero（只承担品牌表达，不放第二个连接按钮，不放实时大盘） */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#F4F8FC] to-white border-b border-[#D9E4F2] pt-8 sm:pt-14 pb-14 sm:pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* 左侧文案 */}
-            <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#EAF1FB] text-[#123B70] text-xs font-semibold tracking-wide">
-                <span className="w-2 h-2 rounded-full bg-[#1C5FB8]"></span>
-                <span>{content.hero.badge}</span>
-              </div>
+      {/* 1. 品牌宽幅 Hero Banner（高度约 500-600px，全宽背景，右侧建筑与湖面自然展开） */}
+      <section className="relative overflow-hidden w-full min-h-[500px] sm:min-h-[540px] lg:h-[560px] flex items-center border-b border-[#D9E4F2] bg-[#E9F1FA]">
+        {/* 背景大图：右侧 2047 金融港建筑群与长垣湖晨曦远景 */}
+        <img
+          src={heroAsset.src}
+          alt={heroAsset.alt}
+          className="absolute inset-0 w-full h-full object-cover object-right md:object-[82%_center] select-none pointer-events-none"
+        />
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1733] tracking-tight leading-[1.25] whitespace-pre-line">
-                {content.hero.title}
-              </h1>
+        {/* 克制的深蓝/白色渐变遮罩：在保证左侧文字高对比阅读的同时，右侧金融港与湖面完全通透显现，风格明亮稳重 */}
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent w-full md:w-[72%] lg:w-[58%] pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-white/20 pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-[#123B70]/[0.02] to-transparent pointer-events-none"
+          aria-hidden="true"
+        />
 
-              <p className="text-base sm:text-lg text-[#60718A] leading-relaxed max-w-2xl">
-                {content.hero.description}
-              </p>
-
-              {/* 仅保留业务导览按钮，禁止重复放置连接终端按钮 */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <Link
-                  to={content.hero.primaryActionLink}
-                  className="px-6 py-3 rounded-xl bg-[#123B70] hover:bg-[#1C5FB8] text-white text-sm font-semibold shadow-sm hover:shadow transition-all flex items-center gap-2"
-                >
-                  <span>{content.hero.primaryActionText}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  to={content.hero.secondaryActionLink}
-                  className="px-6 py-3 rounded-xl bg-white hover:bg-slate-50 text-[#123B70] border border-[#D9E4F2] text-sm font-semibold transition-all"
-                >
-                  {content.hero.secondaryActionText}
-                </Link>
-              </div>
+        {/* 前景内容区：左侧对齐，预留充足空间不遮挡右侧金融港主体 */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+          <div className="max-w-xl lg:max-w-2xl space-y-5">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-xs border border-[#D9E4F2] text-[#123B70] text-xs font-semibold tracking-wide shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-[#1C5FB8]"></span>
+              <span>{content.hero.badge}</span>
             </div>
 
-            {/* 右侧大图展示（长垣城市天际线真实摄影风格，降级占位） */}
-            <div className="lg:col-span-5">
-              <AssetImage
-                assetId={content.hero.assetId}
-                className="w-full shadow-lg rounded-2xl border border-white/60"
-                aspectRatio="aspect-[4/3]"
-              />
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#0B1733] tracking-tight leading-[1.22] whitespace-pre-line">
+              {content.hero.title}
+            </h1>
+
+            <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-xl">
+              {content.hero.description}
+            </p>
+
+            {/* 仅保留业务导览按钮，禁止重复放置连接终端按钮 */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <Link
+                to={content.hero.primaryActionLink}
+                className="px-6 py-3 rounded-xl bg-[#123B70] hover:bg-[#1C5FB8] text-white text-sm font-semibold shadow-sm hover:shadow transition-all flex items-center gap-2"
+              >
+                <span>{content.hero.primaryActionText}</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                to={content.hero.secondaryActionLink}
+                className="px-6 py-3 rounded-xl bg-white hover:bg-slate-50 text-[#123B70] border border-[#D9E4F2] text-sm font-semibold transition-all shadow-2xs"
+              >
+                {content.hero.secondaryActionText}
+              </Link>
             </div>
           </div>
         </div>

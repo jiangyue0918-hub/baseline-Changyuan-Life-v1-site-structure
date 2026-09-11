@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 650" width="100%" height="100%">
+  <defs>
+    <!-- 天空晨曦渐变 -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3F7FC" />
+      <stop offset="45%" stop-color="#E9F1FA" />
+      <stop offset="75%" stop-color="#FBF3E7" />
+      <stop offset="100%" stop-color="#F2EDE4" />
+    </linearGradient>
+
+    <!-- 晨光柔和漫射 -->
+    <radialGradient id="sunGlow" cx="78%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#FFF8EC" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#FDF0DA" stop-opacity="0.5" />
+      <stop offset="75%" stop-color="#EBF2FA" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#EBF2FA" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- 远山渐变 -->
+    <linearGradient id="mountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#BDD0E4" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#A5BED6" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- 长垣湖水面渐变 -->
+    <linearGradient id="lakeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EAF2FA" stop-opacity="0.95" />
+      <stop offset="45%" stop-color="#DEECF9" stop-opacity="0.9" />
+      <stop offset="80%" stop-color="#CFE4F6" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#C5DEEE" />
+    </linearGradient>
+
+    <!-- 建筑立面主色渐变（深蓝企业科技色） -->
+    <linearGradient id="bldgMainGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#123B70" />
+      <stop offset="40%" stop-color="#1C5FB8" />
+      <stop offset="70%" stop-color="#2D72CE" />
+      <stop offset="100%" stop-color="#1A4A87" />
+    </linearGradient>
+
+    <linearGradient id="bldgGlass1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7CAAE0" stop-opacity="0.75" />
+      <stop offset="50%" stop-color="#4B88D0" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#194883" />
+    </linearGradient>
+
+    <linearGradient id="bldgGlass2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E3E68" />
+      <stop offset="60%" stop-color="#2C5B97" />
+      <stop offset="100%" stop-color="#5B8DC7" />
+    </linearGradient>
+
+    <linearGradient id="bldgSilver" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#D9E6F5" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#B2CCE8" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- 生态露台绿植渐变 -->
+    <linearGradient id="greenGarden" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#48C17F" />
+      <stop offset="100%" stop-color="#1E8B54" />
+    </linearGradient>
+
+    <!-- 晨光倒影反射 -->
+    <linearGradient id="waterReflection" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.6" />
+      <stop offset="30%" stop-color="#FBE9D2" stop-opacity="0.4" />
+      <stop offset="70%" stop-color="#78A6DA" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#BBD5EF" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. 背景天空与晨光 -->
+  <rect x="0" y="0" width="1920" height="650" fill="url(#skyGrad)" />
+  <rect x="0" y="0" width="1920" height="650" fill="url(#sunGlow)" />
+
+  <!-- 2. 远山轮廓（柔和的生态丘陵地平线） -->
+  <path d="M700 410 Q1050 360 1350 395 T1920 405 L1920 470 L700 470 Z" fill="url(#mountainGrad)" opacity="0.65" />
+  <path d="M1000 425 Q1300 375 1600 405 T1920 415 L1920 470 L1000 470 Z" fill="url(#mountainGrad)" opacity="0.8" />
+
+  <!-- 3. 长垣湖水体基底 -->
+  <rect x="0" y="440" width="1920" height="210" fill="url(#lakeGrad)" />
+
+  <!-- 4. 水面晨光与微波纹理 -->
+  <ellipse cx="1500" cy="485" rx="360" ry="24" fill="url(#waterReflection)" />
+  <ellipse cx="1420" cy="530" rx="420" ry="20" fill="url(#waterReflection)" opacity="0.75" />
+  <ellipse cx="1580" cy="570" rx="300" ry="16" fill="url(#waterReflection)" opacity="0.5" />
+  <ellipse cx="1350" cy="610" rx="480" ry="14" fill="url(#waterReflection)" opacity="0.4" />
+
+  <!-- 5. 远景次级建筑群（新枢区二期背景天际线） -->
+  <g opacity="0.45">
+    <rect x="1120" y="270" width="48" height="175" rx="3" fill="#8CAECE" />
+    <rect x="1180" y="240" width="55" height="205" rx="3" fill="#7C9EBE" />
+    <rect x="1250" y="290" width="40" height="155" rx="3" fill="#8CAECE" />
+    <rect x="1750" y="250" width="60" height="195" rx="4" fill="#8CAECE" />
+    <rect x="1825" y="280" width="50" height="165" rx="3" fill="#7C9EBE" />
+  </g>
+
+  <!-- 6. 2047 磁悬浮生态空中轨道（平滑曲线穿越金融港） -->
+  <path d="M960 445 C1200 440 1480 395 1920 405" stroke="#C5D8ED" stroke-width="8" fill="none" opacity="0.85" />
+  <path d="M960 447 C1200 442 1480 397 1920 407" stroke="#FFFFFF" stroke-width="2.5" fill="none" opacity="0.95" />
+  <!-- 轨交桥墩 -->
+  <line x1="1180" y1="441" x2="1180" y2="475" stroke="#ABC5E2" stroke-width="4.5" />
+  <line x1="1380" y1="422" x2="1380" y2="470" stroke="#ABC5E2" stroke-width="4.5" />
+  <line x1="1580" y1="406" x2="1580" y2="465" stroke="#ABC5E2" stroke-width="4.5" />
+  <line x1="1780" y1="403" x2="1780" y2="465" stroke="#ABC5E2" stroke-width="4.5" />
+  <!-- 运行中的静音磁悬浮车组 -->
+  <rect x="1410" y="413" width="90" height="9" rx="4.5" fill="#FFFFFF" opacity="0.95" />
+  <rect x="1420" y="415" width="70" height="5" rx="2" fill="#1C5FB8" opacity="0.75" />
+
+  <!-- 7. 右侧主体建筑：长垣新枢金融港摩天大楼群 -->
+  <!-- 建筑 A：双子生态塔（左侧翼楼，带空中绿植露台） -->
+  <g id="bldg-left-wing">
+    <rect x="1270" y="200" width="85" height="255" rx="6" fill="url(#bldgGlass2)" />
+    <!-- 垂直立面线条与窗格 -->
+    <path d="M1282 200 L1282 455 M1298 200 L1298 455 M1314 200 L1314 455 M1330 200 L1330 455 M1346 200 L1346 455" stroke="#7BA6D7" stroke-width="1.2" opacity="0.5" />
+    <!-- 空中生态绿化层 -->
+    <rect x="1266" y="260" width="93" height="7" rx="3.5" fill="url(#greenGarden)" />
+    <rect x="1266" y="325" width="93" height="7" rx="3.5" fill="url(#greenGarden)" />
+    <rect x="1266" y="390" width="93" height="7" rx="3.5" fill="url(#greenGarden)" />
+  </g>
+
+  <!-- 建筑 B：长垣金融港核心超高层主塔（1410 - 1530） -->
+  <g id="bldg-main-tower">
+    <!-- 主体塔身，微收腰优雅曲线 -->
+    <path d="M1410 455 L1425 105 Q1470 70 1515 105 L1530 455 Z" fill="url(#bldgMainGrad)" />
+    <!-- 玻璃幕墙晨曦反光侧翼 -->
+    <path d="M1470 85 L1515 105 L1530 455 L1470 455 Z" fill="url(#bldgGlass1)" opacity="0.85" />
+    <path d="M1425 105 L1470 85 L1470 455 L1410 455 Z" fill="url(#bldgGlass2)" opacity="0.95" />
+    <!-- 顶部天线与冠冕晨曦高光 -->
+    <line x1="1470" y1="40" x2="1470" y2="85" stroke="#FFFFFF" stroke-width="3" />
+    <circle cx="1470" cy="38" r="3.5" fill="#FFE5A3" />
+    <!-- 垂直玻璃幕墙网格 -->
+    <path d="M1438 130 L1432 455 M1454 110 L1451 455 M1470 85 L1470 455 M1486 110 L1489 455 M1502 130 L1508 455" stroke="#FFFFFF" stroke-width="1.4" opacity="0.4" />
+    <!-- 水平结构环（每隔40px） -->
+    <line x1="1428" y1="170" x2="1512" y2="170" stroke="#FFFFFF" stroke-width="2" opacity="0.5" />
+    <line x1="1424" y1="235" x2="1516" y2="235" stroke="#FFFFFF" stroke-width="2" opacity="0.5" />
+    <line x1="1420" y1="305" x2="1520" y2="305" stroke="#FFFFFF" stroke-width="2" opacity="0.5" />
+    <line x1="1415" y1="375" x2="1525" y2="375" stroke="#FFFFFF" stroke-width="2" opacity="0.5" />
+    <!-- 晨光垂直反光辉光 -->
+    <line x1="1472" y1="85" x2="1472" y2="455" stroke="#FFFFFF" stroke-width="3.5" opacity="0.45" />
+  </g>
+
+  <!-- 建筑 C：弧形亲水金融中心（1550 - 1680） -->
+  <g id="bldg-curved-tower">
+    <path d="M1560 455 L1575 160 Q1630 135 1675 175 L1685 455 Z" fill="url(#bldgGlass1)" />
+    <!-- 弧形阳台及悬挑露台 -->
+    <path d="M1570 215 Q1625 195 1680 225" stroke="#FFFFFF" stroke-width="4" fill="none" opacity="0.75" />
+    <path d="M1567 275 Q1625 255 1682 285" stroke="#FFFFFF" stroke-width="4" fill="none" opacity="0.75" />
+    <path d="M1564 340 Q1625 320 1684 350" stroke="#FFFFFF" stroke-width="4" fill="none" opacity="0.75" />
+    <path d="M1561 405 Q1625 385 1686 415" stroke="#FFFFFF" stroke-width="4" fill="none" opacity="0.75" />
+    <!-- 露台悬挂绿化 -->
+    <ellipse cx="1625" cy="270" rx="35" ry="4.5" fill="url(#greenGarden)" />
+    <ellipse cx="1625" cy="335" rx="42" ry="5" fill="url(#greenGarden)" />
+  </g>
+
+  <!-- 建筑 D：滨湖创新中心矮翼（1710 - 1820） -->
+  <g id="bldg-waterfront-wing">
+    <rect x="1705" y="250" width="105" height="205" rx="5" fill="url(#bldgSilver)" />
+    <rect x="1715" y="260" width="85" height="185" fill="url(#bldgGlass2)" opacity="0.85" />
+    <!-- 纵向玻璃条格 -->
+    <path d="M1732 260 L1732 445 M1749 260 L1749 445 M1766 260 L1766 445 M1783 260 L1783 445" stroke="#FFFFFF" stroke-width="1.5" opacity="0.5" />
+  </g>
+
+  <!-- 8. 建筑在长垣湖水面的优雅倒影 -->
+  <g opacity="0.45">
+    <rect x="1420" y="455" width="100" height="90" fill="#1C5FB8" opacity="0.35" />
+    <rect x="1570" y="455" width="105" height="75" fill="#2C5B97" opacity="0.3" />
+    <rect x="1275" y="455" width="75" height="60" fill="#123B70" opacity="0.25" />
+    <!-- 水面水平波纹裁切 -->
+    <line x1="1200" y1="465" x2="1850" y2="465" stroke="#FFFFFF" stroke-width="2.5" opacity="0.5" />
+    <line x1="1250" y1="480" x2="1820" y2="480" stroke="#FFFFFF" stroke-width="2" opacity="0.4" />
+    <line x1="1300" y1="500" x2="1780" y2="500" stroke="#FFFFFF" stroke-width="1.8" opacity="0.35" />
+    <line x1="1340" y1="525" x2="1720" y2="525" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3" />
+  </g>
+
+  <!-- 9. 滨湖亲水景观带（亲水木栈道、银杏与垂柳绿化带） -->
+  <g id="promenade">
+    <!-- 堤岸亲水护栏与步道基底 -->
+    <path d="M960 468 L1920 460 L1920 495 L960 505 Z" fill="#E4EDF7" />
+    <path d="M960 468 L1920 460" stroke="#FFFFFF" stroke-width="3" opacity="0.9" />
+    <path d="M960 472 L1920 464" stroke="#B0C8E3" stroke-width="1.5" />
+    
+    <!-- 湖畔常青树与滨水植被群（低饱和度，自然优雅） -->
+    <circle cx="1130" cy="460" r="14" fill="#2D7A4D" opacity="0.85" />
+    <circle cx="1145" cy="458" r="11" fill="#3B9A63" opacity="0.9" />
+    <circle cx="1220" cy="458" r="15" fill="#2D7A4D" opacity="0.85" />
+    <circle cx="1238" cy="455" r="13" fill="#52B77D" opacity="0.9" />
+    <circle cx="1370" cy="456" r="16" fill="#2D7A4D" opacity="0.85" />
+    <circle cx="1390" cy="453" r="14" fill="#52B77D" opacity="0.9" />
+    <circle cx="1540" cy="455" r="15" fill="#2D7A4D" opacity="0.85" />
+    <circle cx="1560" cy="452" r="12" fill="#52B77D" opacity="0.9" />
+    <circle cx="1695" cy="454" r="17" fill="#2D7A4D" opacity="0.85" />
+    <circle cx="1715" cy="450" r="13" fill="#52B77D" opacity="0.9" />
+  </g>
+
+  <!-- 10. 左下角与晨风微波（极轻微，不干扰文字阅读） -->
+  <g opacity="0.25">
+    <line x1="300" y1="560" x2="650" y2="560" stroke="#FFFFFF" stroke-width="1.5" />
+    <line x1="450" y1="595" x2="780" y2="595" stroke="#FFFFFF" stroke-width="1.5" />
+  </g>
+</svg>
