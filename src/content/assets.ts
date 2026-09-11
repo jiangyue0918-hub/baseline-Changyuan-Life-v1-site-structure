@@ -36,7 +36,7 @@ export const ASSET_LIST: AssetMetadata[] = [
     usage: '已连接终端个人首页顶部氛围与生活图景',
     recommendedSize: '1600x600 px',
     alt: '长垣普通市民家庭在湖畔公园漫步晨练',
-    status: 'placeholder',
+    status: 'ready',
     origin: 'WEB_DERIVED',
     prompt: 'A warm and genuine documentary-style photograph of a real multi-generational Chinese family taking an early morning stroll in Changyuan Lake Park in 2047. A middle-aged couple, their teenage daughter with a light sleek portable e-device, and a healthy grandfather smiling gently while doing morning calisthenics under weeping willows. Clean architectural pavilion in the background. Natural soft daylight, authentic candid expressions, peaceful and grounded modern life. No fake studio smiles, no robotic prosthetics, no neon glows.'
   },
