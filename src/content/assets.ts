@@ -22,7 +22,7 @@ export const ASSET_LIST: AssetMetadata[] = [
   },
   {
     id: 'hero-public-home',
-    src: '/assets/changyuan-life/hero/public-home.svg',
+    src: '/assets/changyuan-life/hero/public-home.jpg',
     usage: '未连接终端首页宽幅 Hero 视觉',
     recommendedSize: '1920x800 px (21:9 或 16:9)',
     alt: '2047年长垣新枢区金融港与长垣湖晨曦远景',
