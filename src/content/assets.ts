@@ -26,7 +26,7 @@ export const ASSET_LIST: AssetMetadata[] = [
     usage: '未连接终端首页宽幅 Hero 视觉',
     recommendedSize: '1920x800 px (21:9 或 16:9)',
     alt: '2047年长垣新枢区金融港与长垣湖晨曦远景',
-    status: 'placeholder',
+    status: 'ready',
     origin: 'WEB_DERIVED',
     prompt: 'A panoramic photograph of Changyuan City skyline in the year 2047 at tranquil morning dawn. In the distance, sleek biophilic skyscrapers of Xinshu Financial Port overlook the calm Changyuan lake and distant misty green hills. Clean urban skyways with silent magnetic rail transit glide smoothly. Warm morning sunlight casts a gentle golden-amber glow over sustainable glass architecture and tree-lined pedestrian waterfront parks. Natural editorial photography, Nikon Z9, realistic atmospheric depth, serene and stable civic atmosphere. Strictly avoid dark cyberpunk neon, no floating holographic HUDs, no glowing futuristic text.'
   },
