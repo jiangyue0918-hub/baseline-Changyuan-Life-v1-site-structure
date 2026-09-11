@@ -1,0 +1,6 @@
+{
+  "name": "长垣人寿",
+  "description": "长垣人寿官方网站（COM-0010）——面向2047年长垣居民的数字保险公共服务平台，提供透明保障、敏捷理赔、可信授权与全流程人工负责服务。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
