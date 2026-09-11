@@ -62,7 +62,7 @@ export const PERSONAL_HOME_CONTENT = {
     detailButton: '查看重大事件专案进度'
   },
   disputeBanner: {
-    badge: '【案件复核中】',
+    badge: '【案件正在复核中】',
     title: '存在1笔理赔争议案件正处于人工复核流程',
     description: '案件 CL-2047-0892 暂停自动扣结，独立核查专员已介入调取就诊补充依据，承诺于2个工作日内同屏反馈复核结论。',
     actionText: '查看复核详情与补充说明'
