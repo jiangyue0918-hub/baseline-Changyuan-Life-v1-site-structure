@@ -25,7 +25,17 @@
 
 ## 二、项目目录划分与维护规范
 
-为方便**非程序员（运营、法务、产品）独立维护**，本项目严格践行“数据与文案分离”架构：
+项目采用「数据与文案分离」的目标架构：大部分页面文案集中在 `src/content/`，便于统一维护。
+
+> **⚠️ 现状说明（请勿删除）**
+>
+> 目前仍有约 310 处用户可见文案写在 `src/components/` 与 `src/pages/` 的 TSX 组件内
+> （顶部导航、各类弹窗、卡片标签、按钮文字等），**尚未完全抽离到 `src/content/`**。
+>
+> 因此：**只修改 `src/content/` 并不能完成全站文案更新。**
+>
+> 全站文案的完整替换，请使用下方第二节的「**文案替换工具**」，它覆盖全部 1191 处文案。
+
 
 ```
 /
@@ -49,18 +59,44 @@
 │   │   └── secondary/            # C 级普通二级页（公司、哲学、网点、条款等）
 │   ├── data/                     # 【模拟业务数据】保单、理赔案卷、通知
 │   ├── types/                    # TypeScript 类型定义（保障、合同、索赔等）
-│   ├── components/               # 【纯视图组件】无硬编码文案
+│   ├── components/               # 视图组件（部分组件内仍含可见文案，见「文案替换工具」）
 │   │   ├── layout/               # Header, Footer, PageShell
 │   │   ├── common/               # AssetImage, 终端切换器, 模态框, 抽屉
 │   │   └── insurance/            # 核心卡片 (PlanCard, PolicyCard, ClaimCard)
-│   └── pages/                    # 页面容器（仅组织结构，从 content 注入数据）
+│   └── pages/                    # 页面容器（部分页面内仍含可见文案，见「文案替换工具」）
 ```
 
 ### 如何修改网站文案？
-1. 若需修改首页宣传语或公告：打开 `src/content/pages/publicHome.ts` 直接修改中文字符串。
-2. 若需新增常见问题 FAQ：打开 `src/content/pages/support.ts` 中的 `faqs` 数组添加。
-3. 若需修改保单锁价规则解释：打开 `src/content/pages/policies.ts` 修改。
-4. **无需改动任何 TSX 页面代码**，即改即生效。
+
+#### 方式一（推荐）：文案替换工具
+
+适用于全站批量替换，**无需接触任何代码**。
+
+```bash
+npm run text:export    # 扫描全站，生成 文案对照表.csv（UTF-8 BOM，Excel 可直接打开）
+# 用 Excel 在「新文字」列填写，留空表示不改
+npm run text:apply     # 把改动写回代码（自动备份到 _text-backup/）
+npm run build          # 确认构建通过
+```
+
+- 保存 CSV 时必须选择「**CSV UTF-8（逗号分隔）**」，否则中文会乱码。
+- 表格中的「位置」列标注了每句话所在的文件与行号，便于定位。
+- 「类型」列可筛选：`正文` / `标题` 是重点，`按钮/短标签` 多为固定用词。
+- 「**含变量·谨慎**」类型的文案内含 `${...}` 插值，只能改文字，**不能删除变量**。
+- 预演（只检查不写入）：`node scripts/text-apply.mjs --dry-run`
+- 找不到「原文」的条目会被跳过并记录在 `文案应用日志.txt`，不会误改。
+
+#### 方式二：手工修改
+
+1. 首页宣传语与公告：`src/content/pages/publicHome.ts`
+2. 常见问题 FAQ：`src/content/pages/support.ts` 的 `faqs` 数组
+3. 保单锁价规则解释：`src/content/pages/policies.ts`
+4. 品牌信息、导航与页脚链接：`src/content/site.ts`
+5. 二级页文案：`src/content/secondary/index.ts`
+
+> **注意**：导航栏、弹窗、卡片标签、按钮等文案位于 `src/components/` 与 `src/pages/`
+> 的 TSX 组件内，手工修改需逐一查找。建议使用方式一以免遗漏。
+
 
 ---
 
@@ -129,4 +165,26 @@ npm run dev
 
 # 静态打包构建
 npm run build
+
+# 文案替换工具
+npm run text:export
+npm run text:apply
 ```
+
+### 部署说明（重要）
+
+本站使用 `react-router-dom` 的 `BrowserRouter`（前端路由）。直接访问或刷新
+`/coverage`、`/plans/xxx` 这类深层路径时，服务器需要把请求交回 `index.html`，
+否则会返回 404。
+
+项目根目录的 `vercel.json` 已配置该回退规则：
+
+```json
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
+```
+
+**请勿删除该文件**，否则深层链接与页面刷新都会 404。若部署到 Vercel 以外的平台，
+需要配置等价的「单页应用回退」规则。
+
